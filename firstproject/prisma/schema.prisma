@@ -1,5 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator db {
   provider             = "prisma-client-py"
@@ -12,19 +10,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id         String   @id @default(cuid())
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  title      String
-  published  Boolean
-  desc       String?
-}
-
 model User {
   id         String   @id @default(cuid())
-  firstname       String
-  lastname      String
+  firstname  String
+  lastname   String
   published  Boolean
   desc       String?
 }
