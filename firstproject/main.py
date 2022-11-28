@@ -6,18 +6,20 @@ async def main() -> None:
     db = Prisma()
     await db.connect()
 
-    post = await db.post.create(
-        {
-            'title': 'Hello from prisma!',
-            'desc': 'Prisma is a database toolkit and makes databases easy.',
+    post = await db.user.create(
+        data={
+            'id':'1',
+            'firstname': 'Rexton',
+            'lastname': 'Itsiah',
             'published': True,
+            'desc': 'New member',
         }
     )
-    print(f'created post: {post.json(indent=2, sort_keys=True)}')
+    print(f'created User: {post.json(indent=2, sort_keys=True)}')
 
-    found = await db.post.find_unique(where={'id': post.id})
+    found = await db.user.find_unique(where={'id': post.id})
     assert found is not None
-    print(f'found post: {found.json(indent=2, sort_keys=True)}')
+    print(f'found user: {found.json(indent=2, sort_keys=True)}')
 
     await db.disconnect()
 
