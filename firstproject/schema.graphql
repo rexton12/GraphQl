@@ -16,12 +16,6 @@ type PostResult {
     post: Post
 }
 
-type PostsResult {
-    success: Boolean!
-    errors: [String]
-    posts: [Post]
-}
-
 type Query {
     listPosts: PostsResult!
     getPost(id: ID!): PostResult!
