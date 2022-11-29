@@ -12,15 +12,15 @@ datasource db {
 
 model User {
   id         String   @id @default(cuid())
-  firstname  String
-  lastname   String
-  published  Boolean
+  firstname  String?
+  lastname   String?
+  published  Boolean?
   desc       String?
 }
 
 model admin {
   id         String   @id @default(cuid())
-  username   String
-  password   String
+  username   String?
+  password   String?
   desc       String?
 }
