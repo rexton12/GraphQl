@@ -24,3 +24,18 @@ model User {
   published  Boolean
   desc       String?
 }
+model Post {
+  id         String   @id @default(cuid())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  title      String
+  published  Boolean
+  desc       String?
+}
+
+model admin {
+  id         String   @id @default(cuid())
+  username   String
+  password   String
+  desc       String?
+}
